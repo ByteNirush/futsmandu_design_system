@@ -1,0 +1,15 @@
+name: futsmandu_design_system
+description: Shared design system tokens and typography for Futsmandu apps.
+version: 1.0.0
+publish_to: none
+
+environment:
+  sdk: ^3.10.0
+
+dependencies:
+  flutter:
+    sdk: flutter
+  google_fonts: ^6.3.0
+
+flutter:
+  uses-material-design: true
