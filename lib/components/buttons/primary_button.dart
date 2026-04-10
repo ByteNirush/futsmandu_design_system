@@ -21,7 +21,7 @@ class PrimaryButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final button = ElevatedButton(
+    return ElevatedButton(
       onPressed: isLoading ? null : onPressed,
       child: Row(
         mainAxisSize: fullWidth ? MainAxisSize.max : MainAxisSize.min,
@@ -46,11 +46,5 @@ class PrimaryButton extends StatelessWidget {
         ],
       ),
     );
-
-    if (fullWidth) {
-      return SizedBox(width: double.infinity, child: button);
-    }
-
-    return button;
   }
 }

@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
 
 class AppFontWeights {
   AppFontWeights._();
@@ -33,13 +32,30 @@ class AppTypographyScale {
 class AppTypography {
   AppTypography._();
 
+  static TextStyle _poppinsStyle({
+    required double fontSize,
+    required FontWeight fontWeight,
+    required Color color,
+    double height = 1.4,
+    double? letterSpacing,
+  }) {
+    return TextStyle(
+      fontFamily: 'Poppins',
+      fontSize: fontSize,
+      fontWeight: fontWeight,
+      color: color,
+      height: height,
+      letterSpacing: letterSpacing,
+    );
+  }
+
   static TextStyle heading(
     BuildContext context,
     ColorScheme scheme, {
     Color? color,
   }) {
     final scale = AppTypographyScale.fromContext(context);
-    return GoogleFonts.poppins(
+    return _poppinsStyle(
       fontSize: 34 * scale,
       fontWeight: AppFontWeights.extraBold,
       color: color ?? scheme.onSurface,
@@ -54,7 +70,7 @@ class AppTypography {
     Color? color,
   }) {
     final scale = AppTypographyScale.fromContext(context);
-    return GoogleFonts.poppins(
+    return _poppinsStyle(
       fontSize: 22 * scale,
       fontWeight: AppFontWeights.bold,
       color: color ?? scheme.onSurface,
@@ -69,7 +85,7 @@ class AppTypography {
     Color? color,
   }) {
     final scale = AppTypographyScale.fromContext(context);
-    return GoogleFonts.poppins(
+    return _poppinsStyle(
       fontSize: 15 * scale,
       fontWeight: AppFontWeights.regular,
       color: color ?? scheme.onSurface,
@@ -83,7 +99,7 @@ class AppTypography {
     Color? color,
   }) {
     final scale = AppTypographyScale.fromContext(context);
-    return GoogleFonts.poppins(
+    return _poppinsStyle(
       fontSize: 12 * scale,
       fontWeight: AppFontWeights.regular,
       color: color ?? scheme.onSurfaceVariant,
@@ -98,7 +114,7 @@ class AppTypography {
     Color? color,
   }) {
     final scale = AppTypographyScale.fromContext(context);
-    return GoogleFonts.poppins(
+    return _poppinsStyle(
       fontSize: 15 * scale,
       fontWeight: AppFontWeights.semiBold,
       color: color ?? scheme.onPrimary,
@@ -111,58 +127,58 @@ class AppTypography {
     ColorScheme scheme, {
     double scale = 1,
   }) {
-    final base = GoogleFonts.poppinsTextTheme();
+    final base = ThemeData(useMaterial3: true).textTheme;
 
     return base.copyWith(
-      headlineLarge: GoogleFonts.poppins(
+      headlineLarge: _poppinsStyle(
         fontSize: 36 * scale,
         fontWeight: AppFontWeights.extraBold,
         color: scheme.onSurface,
         height: 1.16,
       ),
-      headlineMedium: GoogleFonts.poppins(
+      headlineMedium: _poppinsStyle(
         fontSize: 34 * scale,
         fontWeight: AppFontWeights.extraBold,
         color: scheme.onSurface,
         height: 1.18,
       ),
-      headlineSmall: GoogleFonts.poppins(
+      headlineSmall: _poppinsStyle(
         fontSize: 22 * scale,
         fontWeight: AppFontWeights.bold,
         color: scheme.onSurface,
         height: 1.24,
       ),
-      bodyLarge: GoogleFonts.poppins(
+      bodyLarge: _poppinsStyle(
         fontSize: 16 * scale,
         fontWeight: AppFontWeights.regular,
         color: scheme.onSurface,
         height: 1.45,
       ),
-      bodyMedium: GoogleFonts.poppins(
+      bodyMedium: _poppinsStyle(
         fontSize: 14 * scale,
         fontWeight: AppFontWeights.regular,
         color: scheme.onSurface,
         height: 1.42,
       ),
-      bodySmall: GoogleFonts.poppins(
+      bodySmall: _poppinsStyle(
         fontSize: 12 * scale,
         fontWeight: AppFontWeights.regular,
         color: scheme.onSurfaceVariant,
         height: 1.3,
       ),
-      labelLarge: GoogleFonts.poppins(
+      labelLarge: _poppinsStyle(
         fontSize: 16 * scale,
         fontWeight: AppFontWeights.semiBold,
         color: scheme.onPrimary,
         height: 1.2,
       ),
-      labelMedium: GoogleFonts.poppins(
+      labelMedium: _poppinsStyle(
         fontSize: 14 * scale,
         fontWeight: AppFontWeights.semiBold,
         color: scheme.onSurface,
         height: 1.2,
       ),
-      labelSmall: GoogleFonts.poppins(
+      labelSmall: _poppinsStyle(
         fontSize: 13 * scale,
         fontWeight: AppFontWeights.semiBold,
         color: scheme.onSurfaceVariant,

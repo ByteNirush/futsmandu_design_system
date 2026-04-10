@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
 
 import 'app_colors.dart';
 import 'app_elevation.dart';
@@ -23,7 +22,7 @@ class AppTheme {
 
     return ThemeData(
       useMaterial3: true,
-      fontFamily: GoogleFonts.poppins().fontFamily,
+      fontFamily: 'Poppins',
       colorScheme: scheme,
       scaffoldBackgroundColor: scheme.brightness == Brightness.light
           ? AppColors.lightBackground
@@ -43,7 +42,7 @@ class AppTheme {
           foregroundColor: scheme.onPrimary,
           disabledBackgroundColor: scheme.outline.withValues(alpha: 0.3),
           disabledForegroundColor: scheme.onSurfaceVariant,
-          minimumSize: const Size(double.infinity, 48),
+          minimumSize: const Size(0, 48),
           padding: const EdgeInsets.symmetric(
             horizontal: AppSpacing.lg,
             vertical: AppSpacing.md,
@@ -56,7 +55,7 @@ class AppTheme {
       outlinedButtonTheme: OutlinedButtonThemeData(
         style: OutlinedButton.styleFrom(
           foregroundColor: scheme.primary,
-          minimumSize: const Size(double.infinity, 48),
+          minimumSize: const Size(0, 48),
           padding: const EdgeInsets.symmetric(
             horizontal: AppSpacing.lg,
             vertical: AppSpacing.md,

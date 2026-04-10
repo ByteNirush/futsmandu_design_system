@@ -19,7 +19,7 @@ class SecondaryButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final button = OutlinedButton(
+    return OutlinedButton(
       onPressed: onPressed,
       child: Row(
         mainAxisSize: fullWidth ? MainAxisSize.max : MainAxisSize.min,
@@ -37,11 +37,5 @@ class SecondaryButton extends StatelessWidget {
         ],
       ),
     );
-
-    if (fullWidth) {
-      return SizedBox(width: double.infinity, child: button);
-    }
-
-    return button;
   }
 }
