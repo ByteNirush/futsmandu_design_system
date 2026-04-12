@@ -16,16 +16,16 @@ class AppCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final borderRadiusGeometry =
-        (Theme.of(context).cardTheme.shape as RoundedRectangleBorder?)
-            ?.borderRadius;
+    final cardTheme = Theme.of(context).cardTheme;
+    final borderRadius = cardTheme.shape is RoundedRectangleBorder
+        ? (cardTheme.shape as RoundedRectangleBorder).borderRadius
+        : BorderRadius.zero;
 
     return Card(
+      // clipBehavior is set on the theme; InkWell splash respects it.
       child: InkWell(
         onTap: onTap,
-        borderRadius: borderRadiusGeometry is BorderRadius
-            ? borderRadiusGeometry
-            : BorderRadius.zero,
+        borderRadius: borderRadius is BorderRadius ? borderRadius : null,
         child: Padding(padding: padding, child: child),
       ),
     );
