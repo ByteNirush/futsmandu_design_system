@@ -39,7 +39,7 @@ class AuthCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final cs = Theme.of(context).colorScheme;
-    final accentColor = role.accentColor(cs);
+    final accentColor = cs.primary;
 
     return Container(
       padding: const EdgeInsets.all(AppSpacing.cardPadding),
