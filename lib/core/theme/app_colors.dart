@@ -4,7 +4,7 @@ class AppColors {
   AppColors._();
 
   // ── Brand Palette ─────────────────────────────────────────────────────────
-  static const Color primary   = Color(0xFF60BB46); // Green
+  static const Color primary   = Color(0xFF0B6E2E); // Green
   static const Color onPrimary = Color(0xFFFFFFFF);
 
   static const Color secondary   = Color(0xFF212529); // Dark almost black
