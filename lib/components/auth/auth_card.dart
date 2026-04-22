@@ -1,20 +1,16 @@
 import 'package:flutter/material.dart';
 
-import '../../core/theme/app_radius.dart';
 import '../../core/theme/app_spacing.dart';
-import '../text/custom_text.dart';
+import '../../core/theme/app_typography.dart';
 import 'app_role.dart';
 
-/// A surface card that wraps the form content of every auth screen.
+/// A clean, borderless container for auth form content.
 ///
-/// Visual differentiation between roles is applied via a 4 px left accent
-/// border (teal for Player, navy for Owner) and the title colour.
-///
-/// Layout (top to bottom inside the card):
-///   1. [title] in role accent colour
-///   2. [subtitle] in muted secondary text
+/// Layout (top to bottom):
+///   1. [title] in role accent colour (centered, large)
+///   2. [subtitle] in muted secondary text (centered)
 ///   3. [errorWidget] (if provided)
-///   4. 16 px gap
+///   4. 24 px gap
 ///   5. [child] — the form fields and action buttons
 class AuthCard extends StatelessWidget {
   const AuthCard({
@@ -40,48 +36,37 @@ class AuthCard extends StatelessWidget {
   Widget build(BuildContext context) {
     final cs = Theme.of(context).colorScheme;
     final accentColor = cs.primary;
+    final textTheme = Theme.of(context).textTheme;
 
-    return Container(
-      padding: const EdgeInsets.all(AppSpacing.cardPadding),
-      decoration: BoxDecoration(
-        color: cs.surface,
-        borderRadius: AppRadius.extraLarge,
-        border: Border.all(
-          color: cs.outlineVariant.withValues(alpha: 0.55),
-          width: 1,
-        ),
-        boxShadow: [
-          BoxShadow(
-            color: cs.shadow.withValues(alpha: 0.08),
-            blurRadius: 18,
-            spreadRadius: 0,
-            offset: Offset.zero,
-          ),
-        ],
-      ),
-      child: Column(
-        mainAxisSize: MainAxisSize.min,
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          CustomText(
-            title,
-            variant: CustomTextVariant.subHeading,
+    return Column(
+      mainAxisSize: MainAxisSize.min,
+      crossAxisAlignment: CrossAxisAlignment.stretch,
+      children: [
+        // Title - centered, large, bold
+        Text(
+          title,
+          textAlign: TextAlign.center,
+          style: textTheme.headlineSmall?.copyWith(
             color: accentColor,
+            fontWeight: AppFontWeights.bold,
           ),
-          const SizedBox(height: AppSpacing.xs),
-          CustomText(
-            subtitle,
-            variant: CustomTextVariant.body,
+        ),
+        const SizedBox(height: AppSpacing.sm),
+        // Subtitle - centered, muted
+        Text(
+          subtitle,
+          textAlign: TextAlign.center,
+          style: textTheme.bodyMedium?.copyWith(
             color: cs.onSurfaceVariant,
           ),
-          if (errorWidget != null) ...[
-            const SizedBox(height: AppSpacing.md),
-            errorWidget!,
-          ],
+        ),
+        if (errorWidget != null) ...[
           const SizedBox(height: AppSpacing.lg),
-          child,
+          errorWidget!,
         ],
-      ),
+        const SizedBox(height: AppSpacing.xl),
+        child,
+      ],
     );
   }
 }
