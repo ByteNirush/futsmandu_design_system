@@ -15,6 +15,7 @@ class AppInputField extends StatefulWidget {
     super.key,
     this.controller,
     required this.label,
+    this.showLabelAboveField = false,
     this.hint,
     this.prefixIcon,
     this.suffixIcon,
@@ -40,6 +41,10 @@ class AppInputField extends StatefulWidget {
 
   final TextEditingController? controller;
   final String label;
+
+  /// Renders the label as static text above the field instead of a floating
+  /// label inside the border.
+  final bool showLabelAboveField;
   final String? hint;
 
   /// Leading icon shown inside the field. Receives [ColorScheme.onSurfaceVariant]
@@ -97,7 +102,7 @@ class _AppInputFieldState extends State<AppInputField> {
       resolvedSuffix = widget.suffixIcon;
     }
 
-    return TextFormField(
+    final field = TextFormField(
       controller: widget.controller,
       keyboardType: widget.keyboardType,
       obscureText: widget.isPassword && _obscure,
@@ -114,7 +119,7 @@ class _AppInputFieldState extends State<AppInputField> {
       focusNode: widget.focusNode,
       inputFormatters: widget.inputFormatters,
       decoration: InputDecoration(
-        labelText: widget.label,
+        labelText: widget.showLabelAboveField ? null : widget.label,
         hintText: widget.hint,
         prefixIcon: widget.prefixIcon != null
             ? Icon(widget.prefixIcon, color: cs.onSurfaceVariant)
@@ -122,6 +127,22 @@ class _AppInputFieldState extends State<AppInputField> {
         suffixIcon: resolvedSuffix,
         counterText: widget.showCounter ? null : '',
       ),
+    );
+
+    if (!widget.showLabelAboveField) return field;
+
+    final labelStyle = Theme.of(context).textTheme.bodyMedium?.copyWith(
+      color: cs.onSurface,
+      fontWeight: FontWeight.w500,
+    );
+
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        Text(widget.label, style: labelStyle),
+        const SizedBox(height: 6),
+        field,
+      ],
     );
   }
 }
