@@ -21,6 +21,8 @@ class AuthScaffold extends StatelessWidget {
     required this.role,
     required this.child,
     this.showAppBar = false,
+    this.allowScroll = true,
+    this.showAccentStrip = true,
   });
 
   final AppRole role;
@@ -28,6 +30,12 @@ class AuthScaffold extends StatelessWidget {
 
   /// When `true` an [AppBar] with a back arrow is shown (sub-flows only).
   final bool showAppBar;
+
+  /// When `false`, vertical scrolling is disabled for fixed pages like login.
+  final bool allowScroll;
+
+  /// When `false`, hides the 4px role-accent strip at the top.
+  final bool showAccentStrip;
 
   @override
   Widget build(BuildContext context) {
@@ -53,7 +61,7 @@ class AuthScaffold extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.stretch,
         children: [
           // ── Role accent strip ──────────────────────────────────────────
-          Container(height: 4, color: accentColor),
+          if (showAccentStrip) Container(height: 4, color: accentColor),
           Expanded(
             child: SafeArea(
               // When showAppBar is true the AppBar already handles the top
@@ -62,9 +70,12 @@ class AuthScaffold extends StatelessWidget {
               child: LayoutBuilder(
                 builder: (context, constraints) {
                   return SingleChildScrollView(
-                    physics: const ClampingScrollPhysics(),
-                    keyboardDismissBehavior:
-                        ScrollViewKeyboardDismissBehavior.onDrag,
+                    physics: allowScroll
+                      ? const ClampingScrollPhysics()
+                      : const NeverScrollableScrollPhysics(),
+                    keyboardDismissBehavior: allowScroll
+                      ? ScrollViewKeyboardDismissBehavior.onDrag
+                      : ScrollViewKeyboardDismissBehavior.manual,
                     padding: EdgeInsets.fromLTRB(
                       AppSpacing.pageHorizontal,
                       0,
