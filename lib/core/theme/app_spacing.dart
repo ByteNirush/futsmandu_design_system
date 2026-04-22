@@ -4,24 +4,24 @@ class AppSpacing {
   AppSpacing._();
 
   // ── 4-pt Base Grid ────────────────────────────────────────────────────────
-  static const double xxs  = 2;    // micro gap (hairline spacer)
-  static const double xs   = 4;    // tight inline gap
-  static const double sm   = 8;    // standard gap
-  static const double md   = 12;   // medium gap
-  static const double lg   = 16;   // comfortable gap / base padding
-  static const double xl   = 24;   // generous spacing
-  static const double xxl  = 32;   // large layout spacing
-  static const double xxxl = 40;   // extra large
+  static const double xxs  = 4;    // micro gap
+  static const double xs   = 8;    // tight inline gap
+  static const double sm   = 12;   // compact section gap
+  static const double md   = 16;   // base component padding
+  static const double lg   = 20;   // comfortable spacing
+  static const double xl   = 24;   // large spacing
+  static const double xxl  = 32;   // section spacing
+  static const double xxxl = 40;   // extra large spacing
 
   // ── Semantic Aliases ──────────────────────────────────────────────────────
   /// Vertical gap between major page sections.
-  static const double section = 28;
+  static const double section = xxl;
 
   /// Standard horizontal screen inset — use for all screen-edge padding.
   static const double pageHorizontal = 20;
 
-  /// Standard card inner padding (= lg = 16).
-  static const double cardPadding = lg;
+  /// Standard card inner padding.
+  static const double cardPadding = md;
 
   /// Minimum interactive / button height.
   static const double buttonHeight = 48.0;
