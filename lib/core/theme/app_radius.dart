@@ -3,10 +3,11 @@ import 'package:flutter/widgets.dart';
 class AppRadius {
   AppRadius._();
 
-  static const double sm = 6;
-  static const double md = 10;
-  static const double lg = 14;
-  static const double xl = 20;
+  // Premium-friendly rounded system: compact, medium, card, and sheet/dialog.
+  static const double sm = 8;
+  static const double md = 12;
+  static const double lg = 16;
+  static const double xl = 24;
 
   static const BorderRadius small = BorderRadius.all(Radius.circular(sm));
   static const BorderRadius medium = BorderRadius.all(Radius.circular(md));
