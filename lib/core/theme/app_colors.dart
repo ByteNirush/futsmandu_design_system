@@ -79,10 +79,10 @@ class AppColors {
     return const ColorScheme(
       brightness: Brightness.dark,
 
-      primary: Color(0xFF60BB46),
-      onPrimary: Color(0xFFFFFFFF),             // keep text white on primary green
-      primaryContainer: Color(0xFF1B5E20),
-      onPrimaryContainer: Color(0xFFE8F5E9),
+      primary: Color(0xFF10B981),
+      onPrimary: Color(0xFFFFFFFF),             // keep text white on primary emerald
+      primaryContainer: Color(0xFF065F46),
+      onPrimaryContainer: Color(0xFFD1FAE5),
 
       secondary: Color(0xFF9CA3AF),
       onSecondary: Color(0xFF111827),
