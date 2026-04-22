@@ -21,6 +21,7 @@ class AppTheme {
       useMaterial3: true,
       fontFamily: 'Poppins',
       colorScheme: scheme,
+      visualDensity: VisualDensity.adaptivePlatformDensity,
       scaffoldBackgroundColor: isDark
           ? AppColors.darkBackground
           : AppColors.lightBackground,
@@ -60,7 +61,7 @@ class AppTheme {
         height: 72,
         backgroundColor: scheme.surface,
         surfaceTintColor: Colors.transparent,
-        indicatorColor: scheme.primary.withValues(alpha: 0.12),
+        indicatorColor: scheme.primary.withValues(alpha: 0.14),
         elevation: 0,
         shadowColor: Colors.transparent,
         labelBehavior: NavigationDestinationLabelBehavior.alwaysShow,
@@ -92,10 +93,10 @@ class AppTheme {
           foregroundColor: scheme.onPrimary,
           disabledBackgroundColor: scheme.outline.withValues(alpha: 0.24),
           disabledForegroundColor: scheme.onSurfaceVariant,
-          minimumSize: const Size(0, AppSpacing.buttonHeight),
+          minimumSize: const Size(0, 50),
           padding: const EdgeInsets.symmetric(
             horizontal: AppSpacing.xl,
-            vertical: AppSpacing.md,
+            vertical: AppSpacing.sm,
           ),
           textStyle: baseTextTheme.labelLarge,
           shape: const RoundedRectangleBorder(borderRadius: AppRadius.large),
@@ -107,10 +108,10 @@ class AppTheme {
       outlinedButtonTheme: OutlinedButtonThemeData(
         style: OutlinedButton.styleFrom(
           foregroundColor: scheme.primary,
-          minimumSize: const Size(0, AppSpacing.buttonHeight),
+          minimumSize: const Size(0, 50),
           padding: const EdgeInsets.symmetric(
             horizontal: AppSpacing.xl,
-            vertical: AppSpacing.md,
+            vertical: AppSpacing.sm,
           ),
           textStyle: baseTextTheme.labelLarge,
           shape: const RoundedRectangleBorder(borderRadius: AppRadius.large),
@@ -141,10 +142,10 @@ class AppTheme {
       // ── Input Fields ───────────────────────────────────────────────────────
       inputDecorationTheme: InputDecorationTheme(
         filled: true,
-        fillColor: scheme.surface,
+        fillColor: scheme.surfaceContainerHighest.withValues(alpha: 0.4),
         contentPadding: const EdgeInsets.symmetric(
           horizontal: AppSpacing.lg,
-          vertical: AppSpacing.md,
+          vertical: AppSpacing.sm,
         ),
         labelStyle: baseTextTheme.bodyMedium?.copyWith(
           color: scheme.onSurfaceVariant,
@@ -155,30 +156,31 @@ class AppTheme {
         floatingLabelStyle: baseTextTheme.bodySmall?.copyWith(
           color: scheme.primary,
         ),
+        // Boxed outline border style - rounded corners like screenshot
         border: OutlineInputBorder(
-          borderRadius: AppRadius.medium,
-          borderSide: BorderSide(color: scheme.outlineVariant),
+          borderRadius: AppRadius.large,
+          borderSide: BorderSide(color: scheme.outlineVariant.withValues(alpha: 0.5)),
         ),
         enabledBorder: OutlineInputBorder(
-          borderRadius: AppRadius.medium,
-          borderSide: BorderSide(color: scheme.outlineVariant, width: 1.2),
+          borderRadius: AppRadius.large,
+          borderSide: BorderSide(color: scheme.outlineVariant.withValues(alpha: 0.5)),
         ),
         focusedBorder: OutlineInputBorder(
-          borderRadius: AppRadius.medium,
-          borderSide: BorderSide(color: scheme.primary, width: 1.8),
+          borderRadius: AppRadius.large,
+          borderSide: BorderSide(color: scheme.primary, width: 2),
         ),
         errorBorder: OutlineInputBorder(
-          borderRadius: AppRadius.medium,
-          borderSide: BorderSide(color: scheme.error, width: 1.2),
+          borderRadius: AppRadius.large,
+          borderSide: BorderSide(color: scheme.error, width: 1.5),
         ),
         focusedErrorBorder: OutlineInputBorder(
-          borderRadius: AppRadius.medium,
-          borderSide: BorderSide(color: scheme.error, width: 1.8),
+          borderRadius: AppRadius.large,
+          borderSide: BorderSide(color: scheme.error, width: 2),
         ),
         disabledBorder: OutlineInputBorder(
-          borderRadius: AppRadius.medium,
+          borderRadius: AppRadius.large,
           borderSide: BorderSide(
-            color: scheme.outlineVariant.withValues(alpha: 0.5),
+            color: scheme.outlineVariant.withValues(alpha: 0.3),
           ),
         ),
       ),
@@ -194,8 +196,8 @@ class AppTheme {
           borderRadius: AppRadius.large,
           side: isDark
               ? BorderSide(
-                  color: scheme.outlineVariant.withValues(alpha: 0.5),
-                  width: 0.8,
+                  color: scheme.outlineVariant.withValues(alpha: 0.56),
+                  width: 0.9,
                 )
               : BorderSide.none,
         ),
@@ -207,7 +209,7 @@ class AppTheme {
       listTileTheme: ListTileThemeData(
         contentPadding: const EdgeInsets.symmetric(
           horizontal: AppSpacing.lg,
-          vertical: AppSpacing.xs,
+          vertical: AppSpacing.xxs,
         ),
         shape: RoundedRectangleBorder(
           borderRadius: BorderRadius.circular(AppRadius.md),
@@ -228,7 +230,7 @@ class AppTheme {
           color: scheme.onPrimaryContainer,
         ),
         padding: const EdgeInsets.symmetric(
-          horizontal: AppSpacing.md,
+          horizontal: AppSpacing.sm,
           vertical: AppSpacing.xs,
         ),
         shape: const StadiumBorder(),
@@ -274,6 +276,14 @@ class AppTheme {
           borderRadius: BorderRadius.circular(AppRadius.md),
         ),
         elevation: AppElevation.level2,
+      ),
+
+      pageTransitionsTheme: const PageTransitionsTheme(
+        builders: {
+          TargetPlatform.android: FadeForwardsPageTransitionsBuilder(),
+          TargetPlatform.iOS: CupertinoPageTransitionsBuilder(),
+          TargetPlatform.macOS: CupertinoPageTransitionsBuilder(),
+        },
       ),
 
       // ── Dialog ─────────────────────────────────────────────────────────────
