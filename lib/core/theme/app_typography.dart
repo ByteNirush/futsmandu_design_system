@@ -14,7 +14,7 @@ class AppTypographyScale {
 
   static double fromWidth(double width) {
     final normalized = ((width - 360) / 70).clamp(0.0, 1.0);
-    return 0.94 + ((1.06 - 0.94) * normalized);
+    return 0.96 + ((1.08 - 0.96) * normalized);
   }
 
   static double fromContext(BuildContext context) {
@@ -56,11 +56,11 @@ class AppTypography {
   }) {
     final scale = AppTypographyScale.fromContext(context);
     return _poppinsStyle(
-      fontSize: 34 * scale,
-      fontWeight: AppFontWeights.extraBold,
+      fontSize: 32 * scale,
+      fontWeight: AppFontWeights.bold,
       color: color ?? scheme.onSurface,
-      height: 1.18,
-      letterSpacing: -0.2,
+      height: 1.2,
+      letterSpacing: -0.3,
     );
   }
 
@@ -71,10 +71,10 @@ class AppTypography {
   }) {
     final scale = AppTypographyScale.fromContext(context);
     return _poppinsStyle(
-      fontSize: 22 * scale,
+      fontSize: 24 * scale,
       fontWeight: AppFontWeights.bold,
       color: color ?? scheme.onSurface,
-      height: 1.24,
+      height: 1.26,
       letterSpacing: -0.1,
     );
   }
@@ -86,10 +86,10 @@ class AppTypography {
   }) {
     final scale = AppTypographyScale.fromContext(context);
     return _poppinsStyle(
-      fontSize: 15 * scale,
+      fontSize: 16 * scale,
       fontWeight: AppFontWeights.regular,
       color: color ?? scheme.onSurface,
-      height: 1.45,
+      height: 1.5,
     );
   }
 
@@ -103,8 +103,8 @@ class AppTypography {
       fontSize: 12 * scale,
       fontWeight: AppFontWeights.regular,
       color: color ?? scheme.onSurfaceVariant,
-      height: 1.3,
-      letterSpacing: 0.2,
+      height: 1.35,
+      letterSpacing: 0.25,
     );
   }
 
@@ -115,11 +115,11 @@ class AppTypography {
   }) {
     final scale = AppTypographyScale.fromContext(context);
     return _poppinsStyle(
-      fontSize: 15 * scale,
+      fontSize: 14 * scale,
       fontWeight: AppFontWeights.semiBold,
       color: color ?? scheme.onPrimary,
-      height: 1.2,
-      letterSpacing: 0.25,
+      height: 1.3,
+      letterSpacing: 0.2,
     );
   }
 
@@ -136,100 +136,106 @@ class AppTypography {
 
     return base.copyWith(
       displayLarge: _poppinsStyle(
-        fontSize: 57 * scale,
+        fontSize: 56 * scale,
+        fontWeight: AppFontWeights.bold,
+        color: scheme.onSurface,
+        height: 1.08,
+        letterSpacing: -0.5,
+      ),
+      displayMedium: _poppinsStyle(
+        fontSize: 44 * scale,
         fontWeight: AppFontWeights.bold,
         color: scheme.onSurface,
         height: 1.12,
         letterSpacing: -0.25,
       ),
-      displayMedium: _poppinsStyle(
-        fontSize: 45 * scale,
-        fontWeight: AppFontWeights.bold,
-        color: scheme.onSurface,
-        height: 1.16,
-      ),
       displaySmall: _poppinsStyle(
         fontSize: 36 * scale,
         fontWeight: AppFontWeights.bold,
         color: scheme.onSurface,
-        height: 1.22,
+        height: 1.16,
+        letterSpacing: -0.1,
       ),
       headlineLarge: _poppinsStyle(
         fontSize: 32 * scale,
-        fontWeight: AppFontWeights.extraBold,
+        fontWeight: AppFontWeights.bold,
         color: scheme.onSurface,
-        height: 1.25,
+        height: 1.2,
+        letterSpacing: -0.2,
       ),
       headlineMedium: _poppinsStyle(
         fontSize: 28 * scale,
-        fontWeight: AppFontWeights.extraBold,
+        fontWeight: AppFontWeights.bold,
         color: scheme.onSurface,
-        height: 1.29,
+        height: 1.24,
+        letterSpacing: -0.15,
       ),
       headlineSmall: _poppinsStyle(
         fontSize: 24 * scale,
         fontWeight: AppFontWeights.bold,
         color: scheme.onSurface,
-        height: 1.33,
+        height: 1.28,
+        letterSpacing: -0.1,
       ),
       titleLarge: _poppinsStyle(
         fontSize: 22 * scale,
         fontWeight: AppFontWeights.semiBold,
         color: scheme.onSurface,
-        height: 1.27,
+        height: 1.3,
+        letterSpacing: -0.05,
       ),
       titleMedium: _poppinsStyle(
         fontSize: 16 * scale,
         fontWeight: AppFontWeights.semiBold,
         color: scheme.onSurface,
         height: 1.5,
-        letterSpacing: 0.15,
+        letterSpacing: 0.1,
       ),
       titleSmall: _poppinsStyle(
         fontSize: 14 * scale,
         fontWeight: AppFontWeights.semiBold,
         color: scheme.onSurface,
-        height: 1.43,
+        height: 1.4,
         letterSpacing: 0.1,
       ),
       bodyLarge: _poppinsStyle(
         fontSize: 16 * scale,
         fontWeight: AppFontWeights.regular,
         color: scheme.onSurface,
-        height: 1.5,
+        height: 1.56,
       ),
       bodyMedium: _poppinsStyle(
-        fontSize: 14 * scale,
+        fontSize: 15 * scale,
         fontWeight: AppFontWeights.regular,
         color: scheme.onSurface,
-        height: 1.43,
+        height: 1.5,
       ),
       bodySmall: _poppinsStyle(
         fontSize: 12 * scale,
         fontWeight: AppFontWeights.regular,
         color: scheme.onSurfaceVariant,
-        height: 1.33,
+        height: 1.4,
       ),
       labelLarge: _poppinsStyle(
         fontSize: 14 * scale,
         fontWeight: AppFontWeights.semiBold,
         color: scheme.onPrimary,
-        height: 1.43,
-        letterSpacing: 0.1,
+        height: 1.35,
+        letterSpacing: 0.2,
       ),
       labelMedium: _poppinsStyle(
         fontSize: 12 * scale,
         fontWeight: AppFontWeights.semiBold,
         color: scheme.onSurface,
-        height: 1.33,
-        letterSpacing: 0.5,
+        height: 1.35,
+        letterSpacing: 0.35,
       ),
       labelSmall: _poppinsStyle(
         fontSize: 11 * scale,
         fontWeight: AppFontWeights.semiBold,
         color: scheme.onSurfaceVariant,
-        height: 1.3,
-        letterSpacing: 0.5,
+        height: 1.35,
+        letterSpacing: 0.3,
       ),
     );
   }
