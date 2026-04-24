@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
+import '../../core/theme/app_typography.dart';
+
 /// A fully themed text-input field for use across both apps.
 ///
 /// Compared with [AppTextField] this widget:
@@ -133,14 +135,14 @@ class _AppInputFieldState extends State<AppInputField> {
 
     final labelStyle = Theme.of(context).textTheme.bodyMedium?.copyWith(
       color: cs.onSurface,
-      fontWeight: FontWeight.w500,
+      fontWeight: AppFontWeights.regular,
     );
 
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         Text(widget.label, style: labelStyle),
-        const SizedBox(height: 6),
+        const SizedBox(height: 4),
         field,
       ],
     );
