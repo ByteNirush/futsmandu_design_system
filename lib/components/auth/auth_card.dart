@@ -51,7 +51,7 @@ class AuthCard extends StatelessWidget {
             fontWeight: AppFontWeights.bold,
           ),
         ),
-        const SizedBox(height: AppSpacing.sm),
+        const SizedBox(height: AppSpacing.xxs),
         // Subtitle - centered, muted
         Text(
           subtitle,
@@ -64,7 +64,7 @@ class AuthCard extends StatelessWidget {
           const SizedBox(height: AppSpacing.lg),
           errorWidget!,
         ],
-        const SizedBox(height: AppSpacing.xl),
+        const SizedBox(height: AppSpacing.sm),
         child,
       ],
     );
