@@ -145,7 +145,7 @@ class AppTheme {
         fillColor: scheme.surfaceContainerHighest.withValues(alpha: 0.4),
         contentPadding: const EdgeInsets.symmetric(
           horizontal: AppSpacing.lg,
-          vertical: AppSpacing.sm,
+          vertical: 8,
         ),
         labelStyle: baseTextTheme.bodyMedium?.copyWith(
           color: scheme.onSurfaceVariant,
