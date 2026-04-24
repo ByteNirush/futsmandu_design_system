@@ -16,6 +16,8 @@ class OwnerProfileHeader extends StatelessWidget {
     this.isVerified = false,
     this.kycStatusLabel,
     this.onUpdateKyc,
+    this.kycActionLabel,
+    this.avatarWidget,
   });
 
   final String name;
@@ -27,6 +29,11 @@ class OwnerProfileHeader extends StatelessWidget {
   final String? kycStatusLabel;
 
   final VoidCallback? onUpdateKyc;
+  final String? kycActionLabel;
+
+  /// Optional widget rendered in place of the default initials avatar.
+  /// Pass an [OwnerAvatarUploader] (or any widget) to enable photo uploads.
+  final Widget? avatarWidget;
 
   String get _initials {
     final parts = name.trim().split(RegExp(r'\s+'));
@@ -56,22 +63,27 @@ class OwnerProfileHeader extends StatelessWidget {
           Row(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              // ── Initials avatar ──────────────────────────────────────
-              Container(
+              // ── Avatar (custom widget or initials fallback) ──────────
+              SizedBox(
                 width: 56,
                 height: 56,
-                decoration: BoxDecoration(
-                  color: cs.primaryContainer,
-                  borderRadius: BorderRadius.circular(28),
-                ),
-                alignment: Alignment.center,
-                child: Text(
-                  _initials,
-                  style: tt.titleLarge?.copyWith(
-                    fontWeight: FontWeight.w700,
-                    color: cs.onPrimaryContainer,
-                  ),
-                ),
+                child: avatarWidget ??
+                    Container(
+                      width: 56,
+                      height: 56,
+                      decoration: BoxDecoration(
+                        color: cs.primaryContainer,
+                        borderRadius: BorderRadius.circular(28),
+                      ),
+                      alignment: Alignment.center,
+                      child: Text(
+                        _initials,
+                        style: tt.titleLarge?.copyWith(
+                          fontWeight: FontWeight.w700,
+                          color: cs.onPrimaryContainer,
+                        ),
+                      ),
+                    ),
               ),
               const SizedBox(width: AppSpacing.sm),
               // ── Business info ────────────────────────────────────────
@@ -148,8 +160,13 @@ class OwnerProfileHeader extends StatelessWidget {
               width: double.infinity,
               child: OutlinedButton.icon(
                 onPressed: onUpdateKyc,
-                icon: const Icon(Icons.verified_user_outlined, size: 18),
-                label: const Text('Update KYC'),
+                icon: Icon(
+                  (kycActionLabel ?? 'Update KYC') == 'Upload KYC'
+                      ? Icons.cloud_upload_rounded
+                      : Icons.verified_user_outlined,
+                  size: 18,
+                ),
+                label: Text(kycActionLabel ?? 'Update KYC'),
                 style: OutlinedButton.styleFrom(
                   foregroundColor: cs.onSurface,
                   side: BorderSide(color: cs.outlineVariant),
