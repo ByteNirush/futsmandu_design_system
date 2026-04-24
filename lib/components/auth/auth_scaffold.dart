@@ -44,10 +44,10 @@ class AuthScaffold extends StatelessWidget {
     final viewInsets = MediaQuery.of(context).viewInsets;
     final keyboardVisible = viewInsets.bottom > 0;
 
-    final topGap = keyboardVisible ? AppSpacing.xs : AppSpacing.md;
-    final logoSize = keyboardVisible ? 44.0 : 64.0;
-    final contentTopGap = keyboardVisible ? AppSpacing.xs : AppSpacing.md;
-    final bottomPadding = viewInsets.bottom + AppSpacing.lg;
+    final topGap = keyboardVisible ? 0.0 : AppSpacing.xs;
+    final logoSize = keyboardVisible ? 32.0 : 48.0;
+    final contentTopGap = keyboardVisible ? AppSpacing.xxs : AppSpacing.xs;
+    final bottomPadding = viewInsets.bottom + AppSpacing.sm;
 
     return Scaffold(
       resizeToAvoidBottomInset: true,
@@ -87,7 +87,7 @@ class AuthScaffold extends StatelessWidget {
                           BoxConstraints(minHeight: constraints.maxHeight),
                       child: Center(
                         child: ConstrainedBox(
-                          constraints: const BoxConstraints(maxWidth: 460),
+                          constraints: const BoxConstraints(maxWidth: 360),
                           child: Column(
                             mainAxisAlignment: MainAxisAlignment.center,
                             crossAxisAlignment: CrossAxisAlignment.stretch,
