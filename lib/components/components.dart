@@ -7,7 +7,6 @@ export 'cards/app_card.dart';
 export 'cards/app_container.dart';
 
 // ── Inputs ────────────────────────────────────────────────────────────────────
-export 'inputs/app_text_field.dart';
 export 'inputs/app_input_field.dart';
 
 // ── Text ──────────────────────────────────────────────────────────────────────
