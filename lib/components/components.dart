@@ -15,6 +15,9 @@ export 'text/custom_text.dart';
 // ── Common ────────────────────────────────────────────────────────────────────
 export 'common/app_logo.dart';
 
+// ── Empty States ──────────────────────────────────────────────────────────────
+export 'empty_state/empty_state.dart';
+
 // ── Auth ──────────────────────────────────────────────────────────────────────
 export 'auth/app_role.dart';
 export 'auth/auth_scaffold.dart';
