@@ -54,132 +54,87 @@ class OwnerProfileHeader extends StatelessWidget {
       decoration: BoxDecoration(
         color: cs.surface,
         borderRadius: AppRadius.large,
-        border: Border.all(color: cs.outlineVariant.withValues(alpha: 0.85)),
       ),
-      padding: const EdgeInsets.all(AppSpacing.lg),
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
+      padding: const EdgeInsets.all(AppSpacing.md),
+      child: Row(
+        crossAxisAlignment: CrossAxisAlignment.center,
         children: [
-          Row(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              // ── Avatar (custom widget or initials fallback) ──────────
-              SizedBox(
-                width: 56,
-                height: 56,
-                child: avatarWidget ??
-                    Container(
-                      width: 56,
-                      height: 56,
-                      decoration: BoxDecoration(
-                        color: cs.primaryContainer,
-                        borderRadius: BorderRadius.circular(28),
-                      ),
-                      alignment: Alignment.center,
-                      child: Text(
-                        _initials,
-                        style: tt.titleLarge?.copyWith(
-                          fontWeight: FontWeight.w700,
-                          color: cs.onPrimaryContainer,
-                        ),
-                      ),
+          // ── Avatar (custom widget or initials fallback) ──────────
+          SizedBox(
+            width: 64,
+            height: 64,
+            child: avatarWidget ??
+                Container(
+                  width: 64,
+                  height: 64,
+                  decoration: BoxDecoration(
+                    color: cs.primaryContainer,
+                    shape: BoxShape.circle,
+                  ),
+                  alignment: Alignment.center,
+                  child: Text(
+                    _initials,
+                    style: tt.titleLarge?.copyWith(
+                      fontWeight: FontWeight.w700,
+                      color: cs.onPrimaryContainer,
                     ),
-              ),
-              const SizedBox(width: AppSpacing.sm),
-              // ── Business info ────────────────────────────────────────
-              Expanded(
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
+                  ),
+                ),
+          ),
+          const SizedBox(width: AppSpacing.md),
+          // ── Business info ────────────────────────────────────────
+          Expanded(
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Row(
                   children: [
-                    Row(
-                      children: [
-                        Flexible(
-                          child: Text(
-                            name,
-                            maxLines: 1,
-                            overflow: TextOverflow.ellipsis,
-                            style: tt.titleLarge?.copyWith(
-                              fontWeight: FontWeight.w700,
-                              color: cs.onSurface,
-                            ),
-                          ),
+                    Flexible(
+                      child: Text(
+                        name,
+                        maxLines: 1,
+                        overflow: TextOverflow.ellipsis,
+                        style: tt.titleMedium?.copyWith(
+                          fontWeight: FontWeight.w700,
+                          color: cs.onSurface,
                         ),
-                        if (isVerified) ...[
-                          const SizedBox(width: AppSpacing.xs),
-                          Icon(
-                            Icons.verified_rounded,
-                            size: 18,
-                            color: cs.primary,
-                          ),
-                        ],
-                      ],
-                    ),
-                    const SizedBox(height: AppSpacing.xxs),
-                    Text(
-                      email,
-                      style: tt.bodySmall?.copyWith(
-                        color: cs.onSurfaceVariant,
                       ),
                     ),
-                    const SizedBox(height: AppSpacing.xxs),
-                    Text(
-                      phone,
-                      style: tt.bodySmall?.copyWith(
-                        color: cs.onSurfaceVariant,
+                    if (isVerified) ...[
+                      const SizedBox(width: AppSpacing.xs),
+                      Icon(
+                        Icons.verified_rounded,
+                        size: 16,
+                        color: cs.primary,
                       ),
-                    ),
+                    ],
                   ],
                 ),
-              ),
-            ],
-          ),
-          const SizedBox(height: AppSpacing.md),
-          // ── Status chips ─────────────────────────────────────────────
-          Wrap(
-            spacing: AppSpacing.xs,
-            runSpacing: AppSpacing.xs,
-            children: [
-              _OwnerChip(
-                icon: Icons.shield_outlined,
-                label: isVerified ? 'Verified' : 'Unverified',
-                foreground: cs.onSurface,
-                background: cs.surfaceContainerHighest,
-              ),
-              if (kycStatusLabel != null)
-                _OwnerChip(
-                  icon: Icons.assignment_turned_in_outlined,
-                  label: kycStatusLabel!,
-                  foreground: cs.onSurface,
-                  background: cs.surfaceContainerHighest,
+                const SizedBox(height: 2),
+                Text(
+                  email,
+                  style: tt.bodySmall?.copyWith(
+                    color: cs.onSurfaceVariant,
+                  ),
                 ),
-            ],
-          ),
-          if (onUpdateKyc != null) ...[
-            const SizedBox(height: AppSpacing.sm),
-            SizedBox(
-              width: double.infinity,
-              child: OutlinedButton.icon(
-                onPressed: onUpdateKyc,
-                icon: Icon(
-                  (kycActionLabel ?? 'Update KYC') == 'Upload KYC'
-                      ? Icons.cloud_upload_rounded
-                      : Icons.verified_user_outlined,
-                  size: 18,
-                ),
-                label: Text(kycActionLabel ?? 'Update KYC'),
-                style: OutlinedButton.styleFrom(
-                  foregroundColor: cs.onSurface,
-                  side: BorderSide(color: cs.outlineVariant),
-                ),
-              ),
+                if (kycStatusLabel != null) ...[
+                  const SizedBox(height: AppSpacing.xs),
+                  _OwnerChip(
+                    icon: Icons.shield_outlined,
+                    label: kycStatusLabel!,
+                    foreground: cs.onSurface,
+                    background: cs.surfaceContainerHighest,
+                  ),
+                ],
+              ],
             ),
-          ],
+          ),
         ],
       ),
     );
   }
 }
-
 class _OwnerChip extends StatelessWidget {
   const _OwnerChip({
     required this.icon,
@@ -207,7 +162,7 @@ class _OwnerChip extends StatelessWidget {
       child: Row(
         mainAxisSize: MainAxisSize.min,
         children: [
-          Icon(icon, size: 13, color: foreground),
+          Icon(icon, size: 12, color: foreground),
           const SizedBox(width: AppSpacing.xs),
           Text(
             label,
