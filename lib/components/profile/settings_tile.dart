@@ -13,7 +13,7 @@ class SettingsTile extends StatelessWidget {
     super.key,
     required this.icon,
     required this.title,
-    required this.subtitle,
+    this.subtitle,
     required this.trailing,
     this.onTap,
     this.iconColor,
@@ -21,7 +21,7 @@ class SettingsTile extends StatelessWidget {
 
   final IconData icon;
   final String title;
-  final String subtitle;
+  final String? subtitle;
 
   /// Widget shown at the end of the row (e.g. Switch, chevron, ToggleButtons).
   final Widget trailing;
@@ -66,13 +66,15 @@ class SettingsTile extends StatelessWidget {
                       .titleSmall
                       ?.copyWith(fontWeight: FontWeight.w600),
                 ),
-                const SizedBox(height: AppSpacing.xxs),
-                Text(
-                  subtitle,
-                  style: Theme.of(context).textTheme.bodySmall?.copyWith(
-                        color: cs.onSurfaceVariant,
-                      ),
-                ),
+                if (subtitle != null && subtitle!.isNotEmpty) ...[
+                  const SizedBox(height: AppSpacing.xxs),
+                  Text(
+                    subtitle!,
+                    style: Theme.of(context).textTheme.bodySmall?.copyWith(
+                          color: cs.onSurfaceVariant,
+                        ),
+                  ),
+                ],
               ],
             ),
           ),
