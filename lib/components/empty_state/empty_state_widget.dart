@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import '../../core/theme/app_spacing.dart';
 import '../../core/theme/app_typography.dart';
-import 'empty_state_illustrations.dart';
 
 /// Enhanced empty state widget with built-in illustrations.
 ///
@@ -165,43 +164,43 @@ extension _EmptyStateTypeConfig on EmptyStateType {
     switch (this) {
       case EmptyStateType.noData:
         return _EmptyStateConfig(
-          illustration: const NoDataIllustration(size: 120),
+          illustration: const SizedBox.shrink(),
           title: 'No Data Available',
           subtitle: 'Looks like there\'s nothing here yet. Check back later!',
         );
       case EmptyStateType.noSearchResults:
         return _EmptyStateConfig(
-          illustration: const NoSearchResultsIllustration(size: 120),
+           illustration: const SizedBox.shrink(),
           title: 'No Results Found',
           subtitle: 'We couldn\'t find anything matching your search. Try different keywords.',
         );
       case EmptyStateType.error:
         return _EmptyStateConfig(
-          illustration: const ErrorIllustration(size: 120),
+           illustration: const SizedBox.shrink(),
           title: 'Something Went Wrong',
           subtitle: 'An error occurred while loading data. Please try again.',
         );
       case EmptyStateType.noNotifications:
         return _EmptyStateConfig(
-          illustration: const NoNotificationsIllustration(size: 120),
+          illustration: const SizedBox.shrink(),
           title: 'No Notifications',
           subtitle: 'You\'re all caught up! We\'ll notify you when something important happens.',
         );
       case EmptyStateType.noBookings:
         return _EmptyStateConfig(
-          illustration: const NoBookingsIllustration(size: 120),
+          illustration: const SizedBox.shrink(),
           title: 'No Bookings Yet',
           subtitle: 'Start exploring venues and book your first futsal game!',
         );
       case EmptyStateType.offline:
         return _EmptyStateConfig(
-          illustration: const OfflineIllustration(size: 120),
+           illustration: const SizedBox.shrink(),
           title: 'You\'re Offline',
           subtitle: 'Please check your internet connection and try again.',
         );
       case EmptyStateType.success:
         return _EmptyStateConfig(
-          illustration: const SuccessIllustration(size: 120),
+           illustration: const SizedBox.shrink(),
           title: 'All Caught Up!',
           subtitle: 'Great job! You\'ve completed everything on your list.',
         );
