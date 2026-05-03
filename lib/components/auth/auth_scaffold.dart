@@ -45,7 +45,7 @@ class AuthScaffold extends StatelessWidget {
     final keyboardVisible = viewInsets.bottom > 0;
 
     final topGap = keyboardVisible ? 0.0 : AppSpacing.xs;
-    final logoSize = keyboardVisible ? 32.0 : 48.0;
+    final logoSize = keyboardVisible ? 60.0 : 80.0;
     final contentTopGap = keyboardVisible ? AppSpacing.xxs : AppSpacing.xs;
     final bottomPadding = viewInsets.bottom + AppSpacing.sm;
 
