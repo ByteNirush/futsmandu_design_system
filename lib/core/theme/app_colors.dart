@@ -3,6 +3,18 @@ import 'package:flutter/material.dart';
 class AppColors {
   AppColors._();
 
+  // ── Legacy Color Aliases ─────────────────────────────────────────────────
+  static const Color green = primary;
+  static const Color amber = warning;
+  static const Color red = error;
+  static const Color blue = info;
+  static const Color danger = error;
+
+  // ── App-Specific Colors ──────────────────────────────────────────────────
+  static const Color khalti = Color(0xFF5C2D91);
+  static const Color esewa = Color(0xFF60BB46);
+  static const Color ratingStar = warning;
+
   // ── Brand Palette ─────────────────────────────────────────────────────────
   static const Color primary   = Color(0xFF0B6E2E); // Green
   static const Color onPrimary = Color(0xFFFFFFFF);
@@ -75,45 +87,159 @@ class AppColors {
   }
 
   // ── Dark ColorScheme ──────────────────────────────────────────────────────
-  static ColorScheme get darkScheme {
-    return const ColorScheme(
-      brightness: Brightness.dark,
+static ColorScheme get darkScheme {
+  return const ColorScheme(
+    brightness: Brightness.dark,
 
-      primary: Color(0xFF10B981),
-      onPrimary: Color(0xFFFFFFFF),             // keep text white on primary emerald
-      primaryContainer: Color(0xFF065F46),
-      onPrimaryContainer: Color(0xFFD1FAE5),
+    // Slightly softened from the original overly-saturated value —
+    // readable and vibrant without feeling harsh on dark backgrounds.
+    primary: Color(0xFF18C35A),
+    onPrimary: Color(0xFF003517),
 
-      secondary: Color(0xFF9CA3AF),
-      onSecondary: Color(0xFF111827),
-      secondaryContainer: Color(0xFF374151),
-      onSecondaryContainer: Color(0xFFF3F4F6),
+    // Fixed: was reusing the light-mode value (very light green = jarring).
+    // Now a deep forest green that actually suits dark surfaces.
+    primaryContainer: Color(0xFF0A3D20),
+    // Contrast pair: light mint reads clearly on the deep green container.
+    onPrimaryContainer: Color(0xFF18C35A),
 
-      tertiary: Color(0xFF4ADE80),
-      onTertiary: Color(0xFF064E3B),
-      tertiaryContainer: Color(0xFF065F46),
-      onTertiaryContainer: Color(0xFFD1FAE5),
+    secondary: Color(0xFF9CA3AF),
+    onSecondary: Color(0xFF111827),
+    // Bumped from #374151 to a richer slate — more presence on dark surfaces.
+    secondaryContainer: Color(0xFF2D3748),
+    onSecondaryContainer: Color(0xFFE2E8F0),
 
-      error: Color(0xFFF87171),
-      onError: Color(0xFF450A0A),
-      errorContainer: Color(0xFF7F1D1D),
-      onErrorContainer: Color(0xFFFECACA),
+    // Pulled slightly toward emerald for harmony with the new primary.
+    tertiary: Color(0xFF34D399),
+    onTertiary: Color(0xFF052E16),
+    // Deeper and more saturated container — consistent with primaryContainer logic.
+    tertiaryContainer: Color(0xFF083D2A),
+    onTertiaryContainer: Color(0xFFA7F3D0),
 
-      surface: darkSurface,
-      onSurface: darkTextPrimary,
-      onSurfaceVariant: darkTextSecondary,
+    // Softened from #F87171 to #FC8181 — less alarming, still clearly an error.
+    error: Color(0xFFFF4444),
+    onError: Color(0xFF2D0000),
+    errorContainer: Color(0xFFFF4444),
+    onErrorContainer: Color(0xFFFFCDD2),
 
-      outline: darkTextDisabled,
-      outlineVariant: Color(0xFF374151),
+    surface: darkSurface,
+    onSurface: darkTextPrimary,
 
-      shadow: Color(0x80000000),                // deeper shadows in dark mode
-      scrim: Color(0xB3000000),
+    // Bumped from #9CA3AF (too muted) to #D1D5DB — secondary text is now
+    // meaningfully distinct from disabled text, improving the 3-tier hierarchy.
+    onSurfaceVariant: Color(0xFFD1D5DB),
+
+    // Bumped from #6B7280 to #4B5563 — borders now show up on dark surfaces.
+    outline: Color(0xFF4B5563),
+    outlineVariant: Color(0xFF374151),
+
+    shadow: Color(0x80000000),
 
       inverseSurface: lightSurface,
       onInverseSurface: lightTextPrimary,
       inversePrimary: primary,
 
-      surfaceTint: darkSurface, // Keeps dark cards actually dark
+      surfaceTint: darkSurface,
     );
   }
+
+  // ── System Brightness Helper ────────────────────────────────────────────
+  static Brightness get _systemBrightness =>
+      WidgetsBinding.instance.platformDispatcher.platformBrightness;
+
+  // ── Theme-Aware Color Getters ─────────────────────────────────────────────
+  /// Returns the appropriate color scheme based on brightness (defaults to system)
+  static ColorScheme scheme([Brightness? brightness]) =>
+      (brightness ?? _systemBrightness) == Brightness.dark
+          ? darkScheme
+          : lightScheme;
+
+  /// Returns the appropriate background color based on brightness (defaults to system)
+  static Color background([Brightness? brightness]) =>
+      (brightness ?? _systemBrightness) == Brightness.dark
+          ? darkSurface
+          : lightSurface;
+
+  /// Returns the appropriate surface color based on brightness (defaults to system)
+  static Color surface([Brightness? brightness]) =>
+      (brightness ?? _systemBrightness) == Brightness.dark
+          ? darkSurface
+          : lightSurface;
+
+  /// Returns the appropriate card color based on brightness (defaults to system)
+  static Color card([Brightness? brightness]) =>
+      (brightness ?? _systemBrightness) == Brightness.dark
+          ? darkSurface
+          : lightSurface;
+
+  /// Returns the appropriate primary variant color based on brightness (defaults to system)
+  static Color primaryVariant([Brightness? brightness]) =>
+      (brightness ?? _systemBrightness) == Brightness.dark
+          ? darkScheme.onPrimaryContainer
+          : lightScheme.onPrimaryContainer;
+
+  /// Returns the appropriate primary text color based on brightness (defaults to system)
+  static Color textPrimary([Brightness? brightness]) =>
+      (brightness ?? _systemBrightness) == Brightness.dark
+          ? darkTextPrimary
+          : lightTextPrimary;
+
+  /// Returns the appropriate secondary text color based on brightness (defaults to system)
+  static Color textSecondary([Brightness? brightness]) =>
+      (brightness ?? _systemBrightness) == Brightness.dark
+          ? darkTextSecondary
+          : lightTextSecondary;
+
+  /// Returns the appropriate border color based on brightness (defaults to system)
+  static Color border([Brightness? brightness]) =>
+      (brightness ?? _systemBrightness) == Brightness.dark
+          ? darkScheme.outline
+          : lightScheme.outline;
+
+  /// Returns the appropriate outline variant color based on brightness (defaults to system)
+  static Color borderVariant([Brightness? brightness]) =>
+      (brightness ?? _systemBrightness) == Brightness.dark
+          ? darkScheme.outlineVariant
+          : lightScheme.outlineVariant;
+
+  /// Returns the appropriate disabled text color based on brightness (defaults to system)
+  static Color textDisabled([Brightness? brightness]) =>
+      (brightness ?? _systemBrightness) == Brightness.dark
+          ? darkTextDisabled
+          : lightTextDisabled;
+
+  // ── Legacy Background Aliases (Getters for backward compatibility) ──────────
+  static Color get bgPrimary => background();
+  static Color get bgSurface => surface();
+  static Color get bgElevated => card();
+
+  // ── Legacy Text Aliases (Getters for backward compatibility) ──────────────
+  static Color get txtPrimary => textPrimary();
+  static Color get txtDisabled => textDisabled();
+
+  // ── Legacy Border Aliases (Getters for backward compatibility) ──────────────
+  static Color get borderClr => borderVariant();
+
+  // ── Status Color Helper ───────────────────────────────────────────────────
+  static Color statusColor(String status, [Brightness? brightness]) => switch (status) {
+        'AVAILABLE' => green,
+        'HELD' => amber,
+        'CONFIRMED' => green,
+        'CANCELLED' => red,
+        'EXPIRED' => textDisabled(brightness),
+        'COMPLETED' => blue,
+        'NO_SHOW' => red,
+        _ => textDisabled(brightness),
+      };
+
+  // ── Reliability Color Helper ──────────────────────────────────────────────
+  static Color reliabilityColor(int score) =>
+      score >= 70 ? green : score >= 40 ? amber : red;
+}
+
+// ── Color Scheme Accessors ─────────────────────────────────────────────────
+class AppColorSchemes {
+  AppColorSchemes._();
+
+  static ColorScheme get light => AppColors.lightScheme;
+  static ColorScheme get dark => AppColors.darkScheme;
 }
