@@ -64,7 +64,7 @@ class AuthCard extends StatelessWidget {
           const SizedBox(height: AppSpacing.lg),
           errorWidget!,
         ],
-        const SizedBox(height: AppSpacing.sm),
+        const SizedBox(height: AppSpacing.md),
         child,
       ],
     );
