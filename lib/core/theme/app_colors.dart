@@ -16,32 +16,33 @@ class AppColors {
   static const Color ratingStar = warning;
 
   // ── Brand Palette ─────────────────────────────────────────────────────────
-  static const Color primary   = Color(0xFF0B6E2E); // Green
+  static const Color primary = Color(0xFF0B6E2E); // Green
   static const Color onPrimary = Color(0xFFFFFFFF);
 
-  static const Color secondary   = Color(0xFF212529); // Dark almost black
+  static const Color secondary = Color(0xFF212529); // Dark almost black
   static const Color onSecondary = Color(0xFFFFFFFF);
 
   static const Color success = Color(0xFF28A745);
   static const Color warning = Color(0xFFFFC107);
-  static const Color info    = Color(0xFF17A2B8);
-  static const Color error   = Color(0xFFDC3545);
+  static const Color info = Color(0xFF17A2B8);
+  static const Color error = Color(0xFFDC3545);
 
   // ── Backgrounds ───────────────────────────────────────────────────────────
   static const Color lightBackground = Color(0xFFF4F6F8); // Light clean gray
-  static const Color darkBackground  = Color(0xFF121212); // Grayish-black
+  static const Color darkBackground = Color(0xFF121212); // Grayish-black
 
   // ── Surfaces ──────────────────────────────────────────────────────────────
   static const Color lightSurface = Color(0xFFFFFFFF); // Stark white
-  static const Color darkSurface  = Color(0xFF1E1E1E);
+  static const Color darkSurface = Color(0xFF1E1E1E);
 
   // ── Text ──────────────────────────────────────────────────────────────────
-  static const Color lightTextPrimary   = Color(0xFF1F2937); // Very dark gray for high readability
-  static const Color darkTextPrimary    = Color(0xFFF9FAFB); // High contrast white
+  static const Color lightTextPrimary =
+      Color(0xFF1F2937); // Very dark gray for high readability
+  static const Color darkTextPrimary = Color(0xFFF9FAFB); // High contrast white
   static const Color lightTextSecondary = Color(0xFF6B7280);
-  static const Color darkTextSecondary  = Color(0xFF9CA3AF);
-  static const Color lightTextDisabled  = Color(0xFF9CA3AF);
-  static const Color darkTextDisabled   = Color(0xFF6B7280);
+  static const Color darkTextSecondary = Color(0xFF9CA3AF);
+  static const Color lightTextDisabled = Color(0xFF9CA3AF);
+  static const Color darkTextDisabled = Color(0xFF6B7280);
 
   // ── Light ColorScheme ─────────────────────────────────────────────────────
   static ColorScheme get lightScheme {
@@ -50,8 +51,8 @@ class AppColors {
 
       primary: primary,
       onPrimary: onPrimary,
-      primaryContainer: Color(0xFFE8F5E9),      // very light green
-      onPrimaryContainer: Color(0xFF1B5E20),    // very dark green
+      primaryContainer: Color(0xFFE8F5E9), // very light green
+      onPrimaryContainer: Color(0xFF1B5E20), // very dark green
 
       secondary: secondary,
       onSecondary: onSecondary,
@@ -72,10 +73,10 @@ class AppColors {
       onSurface: lightTextPrimary,
       onSurfaceVariant: lightTextSecondary,
 
-      outline: Color(0xFFE5E7EB),               // clean light borders
+      outline: Color(0xFFE5E7EB), // clean light borders
       outlineVariant: Color(0xFFD1D5DB),
 
-      shadow: Color(0x1A000000),                // light, subtle shadows
+      shadow: Color(0x1A000000), // light, subtle shadows
       scrim: Color(0x80000000),
 
       inverseSurface: darkSurface,
@@ -87,52 +88,52 @@ class AppColors {
   }
 
   // ── Dark ColorScheme ──────────────────────────────────────────────────────
-static ColorScheme get darkScheme {
-  return const ColorScheme(
-    brightness: Brightness.dark,
+  static ColorScheme get darkScheme {
+    return const ColorScheme(
+      brightness: Brightness.dark,
 
-    // Slightly softened from the original overly-saturated value —
-    // readable and vibrant without feeling harsh on dark backgrounds.
-    primary: Color(0xFF18C35A),
-    onPrimary: Color(0xFF003517),
+      // Slightly softened from the original overly-saturated value —
+      // readable and vibrant without feeling harsh on dark backgrounds.
+      primary: Color(0xFF18C35A),
+      onPrimary: Color(0xFF003517),
 
-    // Fixed: was reusing the light-mode value (very light green = jarring).
-    // Now a deep forest green that actually suits dark surfaces.
-    primaryContainer: Color(0xFF0A3D20),
-    // Contrast pair: light mint reads clearly on the deep green container.
-    onPrimaryContainer: Color(0xFF18C35A),
+      // Fixed: was reusing the light-mode value (very light green = jarring).
+      // Now a deep forest green that actually suits dark surfaces.
+      primaryContainer: Color(0xFF0A3D20),
+      // Contrast pair: light mint reads clearly on the deep green container.
+      onPrimaryContainer: Color(0xFF18C35A),
 
-    secondary: Color(0xFF9CA3AF),
-    onSecondary: Color(0xFF111827),
-    // Bumped from #374151 to a richer slate — more presence on dark surfaces.
-    secondaryContainer: Color(0xFF2D3748),
-    onSecondaryContainer: Color(0xFFE2E8F0),
+      secondary: Color(0xFF9CA3AF),
+      onSecondary: Color(0xFF111827),
+      // Bumped from #374151 to a richer slate — more presence on dark surfaces.
+      secondaryContainer: Color(0xFF2D3748),
+      onSecondaryContainer: Color(0xFFE2E8F0),
 
-    // Pulled slightly toward emerald for harmony with the new primary.
-    tertiary: Color(0xFF34D399),
-    onTertiary: Color(0xFF052E16),
-    // Deeper and more saturated container — consistent with primaryContainer logic.
-    tertiaryContainer: Color(0xFF083D2A),
-    onTertiaryContainer: Color(0xFFA7F3D0),
+      // Pulled slightly toward emerald for harmony with the new primary.
+      tertiary: Color(0xFF34D399),
+      onTertiary: Color(0xFF052E16),
+      // Deeper and more saturated container — consistent with primaryContainer logic.
+      tertiaryContainer: Color(0xFF083D2A),
+      onTertiaryContainer: Color(0xFFA7F3D0),
 
-    // Softened from #F87171 to #FC8181 — less alarming, still clearly an error.
-    error: Color(0xFFFF4444),
-    onError: Color(0xFF2D0000),
-    errorContainer: Color(0xFFFF4444),
-    onErrorContainer: Color(0xFFFFCDD2),
+      // Softened from #F87171 to #FC8181 — less alarming, still clearly an error.
+      error: Color(0xFFFF4444),
+      onError: Color(0xFF2D0000),
+      errorContainer: Color(0xFFFF4444),
+      onErrorContainer: Color(0xFFFFCDD2),
 
-    surface: darkSurface,
-    onSurface: darkTextPrimary,
+      surface: darkSurface,
+      onSurface: darkTextPrimary,
 
-    // Bumped from #9CA3AF (too muted) to #D1D5DB — secondary text is now
-    // meaningfully distinct from disabled text, improving the 3-tier hierarchy.
-    onSurfaceVariant: Color(0xFFD1D5DB),
+      // Bumped from #9CA3AF (too muted) to #D1D5DB — secondary text is now
+      // meaningfully distinct from disabled text, improving the 3-tier hierarchy.
+      onSurfaceVariant: Color(0xFFD1D5DB),
 
-    // Bumped from #6B7280 to #4B5563 — borders now show up on dark surfaces.
-    outline: Color(0xFF4B5563),
-    outlineVariant: Color(0xFF374151),
+      // Bumped from #6B7280 to #4B5563 — borders now show up on dark surfaces.
+      outline: Color(0xFF4B5563),
+      outlineVariant: Color(0xFF374151),
 
-    shadow: Color(0x80000000),
+      shadow: Color(0x80000000),
 
       inverseSurface: lightSurface,
       onInverseSurface: lightTextPrimary,
@@ -147,12 +148,6 @@ static ColorScheme get darkScheme {
       WidgetsBinding.instance.platformDispatcher.platformBrightness;
 
   // ── Theme-Aware Color Getters ─────────────────────────────────────────────
-  /// Returns the appropriate color scheme based on brightness (defaults to system)
-  static ColorScheme scheme([Brightness? brightness]) =>
-      (brightness ?? _systemBrightness) == Brightness.dark
-          ? darkScheme
-          : lightScheme;
-
   /// Returns the appropriate background color based on brightness (defaults to system)
   static Color background([Brightness? brightness]) =>
       (brightness ?? _systemBrightness) == Brightness.dark
@@ -170,12 +165,6 @@ static ColorScheme get darkScheme {
       (brightness ?? _systemBrightness) == Brightness.dark
           ? darkSurface
           : lightSurface;
-
-  /// Returns the appropriate primary variant color based on brightness (defaults to system)
-  static Color primaryVariant([Brightness? brightness]) =>
-      (brightness ?? _systemBrightness) == Brightness.dark
-          ? darkScheme.onPrimaryContainer
-          : lightScheme.onPrimaryContainer;
 
   /// Returns the appropriate primary text color based on brightness (defaults to system)
   static Color textPrimary([Brightness? brightness]) =>
@@ -220,7 +209,8 @@ static ColorScheme get darkScheme {
   static Color get borderClr => borderVariant();
 
   // ── Status Color Helper ───────────────────────────────────────────────────
-  static Color statusColor(String status, [Brightness? brightness]) => switch (status) {
+  static Color statusColor(String status, [Brightness? brightness]) =>
+      switch (status) {
         'AVAILABLE' => green,
         'HELD' => amber,
         'CONFIRMED' => green,
@@ -232,14 +222,9 @@ static ColorScheme get darkScheme {
       };
 
   // ── Reliability Color Helper ──────────────────────────────────────────────
-  static Color reliabilityColor(int score) =>
-      score >= 70 ? green : score >= 40 ? amber : red;
-}
-
-// ── Color Scheme Accessors ─────────────────────────────────────────────────
-class AppColorSchemes {
-  AppColorSchemes._();
-
-  static ColorScheme get light => AppColors.lightScheme;
-  static ColorScheme get dark => AppColors.darkScheme;
+  static Color reliabilityColor(int score) => score >= 70
+      ? green
+      : score >= 40
+          ? amber
+          : red;
 }
