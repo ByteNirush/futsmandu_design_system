@@ -16,7 +16,7 @@ class AppColors {
   static const Color ratingStar = warning;
 
   // ── Brand Palette ─────────────────────────────────────────────────────────
-  static const Color primary = Color(0xFF0B6E2E); // Green
+  static const Color primary = Color(0xFF3CC850); // Darker Green from screenshots
   static const Color onPrimary = Color(0xFFFFFFFF);
 
   static const Color secondary = Color(0xFF212529); // Dark almost black
@@ -28,12 +28,12 @@ class AppColors {
   static const Color error = Color(0xFFDC3545);
 
   // ── Backgrounds ───────────────────────────────────────────────────────────
-  static const Color lightBackground = Color(0xFFF4F6F8); // Light clean gray
-  static const Color darkBackground = Color(0xFF121212); // Grayish-black
+  static const Color lightBackground = Color(0xFFF8F9FA); // Very light gray from screenshots
+  static const Color darkBackground = Color(0xFF111111); // Dark background from screenshots
 
   // ── Surfaces ──────────────────────────────────────────────────────────────
   static const Color lightSurface = Color(0xFFFFFFFF); // Stark white
-  static const Color darkSurface = Color(0xFF1E1E1E);
+  static const Color darkSurface = Color(0xFF252525); // Card/box color from screenshots
 
   // ── Text ──────────────────────────────────────────────────────────────────
   static const Color lightTextPrimary =
@@ -92,46 +92,34 @@ class AppColors {
     return const ColorScheme(
       brightness: Brightness.dark,
 
-      // Slightly softened from the original overly-saturated value —
-      // readable and vibrant without feeling harsh on dark backgrounds.
-      primary: Color(0xFF18C35A),
-      onPrimary: Color(0xFF003517),
+      primary: Color(0xFF3CC850),
+      onPrimary: Color(0xFF052E16),
 
-      // Fixed: was reusing the light-mode value (very light green = jarring).
-      // Now a deep forest green that actually suits dark surfaces.
-      primaryContainer: Color(0xFF0A3D20),
-      // Contrast pair: light mint reads clearly on the deep green container.
-      onPrimaryContainer: Color(0xFF18C35A),
+      primaryContainer: Color(0xFF0D3D1F),
+      onPrimaryContainer: Color(0xFF22C55E),
 
       secondary: Color(0xFF9CA3AF),
       onSecondary: Color(0xFF111827),
-      // Bumped from #374151 to a richer slate — more presence on dark surfaces.
-      secondaryContainer: Color(0xFF2D3748),
+      secondaryContainer: Color(0xFF1E2A38),
       onSecondaryContainer: Color(0xFFE2E8F0),
 
-      // Pulled slightly toward emerald for harmony with the new primary.
       tertiary: Color(0xFF34D399),
       onTertiary: Color(0xFF052E16),
-      // Deeper and more saturated container — consistent with primaryContainer logic.
       tertiaryContainer: Color(0xFF083D2A),
       onTertiaryContainer: Color(0xFFA7F3D0),
 
-      // Softened from #F87171 to #FC8181 — less alarming, still clearly an error.
       error: Color(0xFFFF4444),
       onError: Color(0xFF2D0000),
-      errorContainer: Color(0xFFFF4444),
+      errorContainer: Color(0xFF3D0000),
       onErrorContainer: Color(0xFFFFCDD2),
 
       surface: darkSurface,
       onSurface: darkTextPrimary,
 
-      // Bumped from #9CA3AF (too muted) to #D1D5DB — secondary text is now
-      // meaningfully distinct from disabled text, improving the 3-tier hierarchy.
-      onSurfaceVariant: Color(0xFFD1D5DB),
+      onSurfaceVariant: Color(0xFFB0B8C4),
 
-      // Bumped from #6B7280 to #4B5563 — borders now show up on dark surfaces.
-      outline: Color(0xFF4B5563),
-      outlineVariant: Color(0xFF374151),
+      outline: Color(0xFF4A5568),
+      outlineVariant: Color(0xFF2D3748),
 
       shadow: Color(0x80000000),
 

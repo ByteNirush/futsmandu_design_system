@@ -25,6 +25,8 @@ class AppTheme {
       scaffoldBackgroundColor: isDark
           ? AppColors.darkBackground
           : AppColors.lightBackground,
+      // Ensure cards don't get tinted in dark mode
+      cardColor: isDark ? AppColors.darkSurface : AppColors.lightSurface,
 
       // ── Typography ─────────────────────────────────────────────────────────
       textTheme: baseTextTheme,
