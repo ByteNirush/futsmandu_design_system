@@ -79,12 +79,18 @@ class EmptyStateWidget extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
               // Illustration with optional size wrapper
-              SizedBox(
-                width: illustrationSize,
-                height: illustrationSize,
-                child: config.illustration,
-              ),
-              SizedBox(height: compact ? AppSpacing.sm : AppSpacing.md),
+              if (config.illustration is! SizedBox ||
+                  ((config.illustration as SizedBox).width != null &&
+                      (config.illustration as SizedBox).width! > 0))
+                SizedBox(
+                  width: illustrationSize,
+                  height: illustrationSize,
+                  child: config.illustration,
+                ),
+              if (config.illustration is! SizedBox ||
+                  ((config.illustration as SizedBox).width != null &&
+                      (config.illustration as SizedBox).width! > 0))
+                SizedBox(height: compact ? AppSpacing.sm : AppSpacing.md),
               // Title
               Text(
                 config.title,
