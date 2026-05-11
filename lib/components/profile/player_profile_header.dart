@@ -6,8 +6,8 @@ import '../../core/theme/app_spacing.dart';
 /// Profile header card for the **Player** app.
 ///
 /// Shows the player's avatar (network image or initials fallback), name,
-/// optional handle, skill level chip, verification badge, and a three-column
-/// stats row (Matches · ELO · Reliability).
+/// optional handle, skill level chip, verification badge, and a two-column
+/// stats row (Matches · Reliability).
 ///
 /// The [avatarWidget] parameter is intentionally untyped — the calling app
 /// supplies a [CachedNetworkImage] or any other [Widget]. When null an
@@ -19,7 +19,6 @@ class PlayerProfileHeader extends StatelessWidget {
     this.handle,
     this.avatarWidget,
     this.isVerified = false,
-    this.eloRating = 0,
     this.reliabilityScore = 0,
     this.matchesPlayed = 0,
     this.skillLevel,
@@ -34,7 +33,6 @@ class PlayerProfileHeader extends StatelessWidget {
   final Widget? avatarWidget;
 
   final bool isVerified;
-  final int eloRating;
   final int reliabilityScore;
   final int matchesPlayed;
   final String? skillLevel;
@@ -171,12 +169,6 @@ class PlayerProfileHeader extends StatelessWidget {
               _StatCell(
                 label: 'Matches',
                 value: matchesPlayed.toString(),
-                onAccent: cs.onPrimary,
-              ),
-              _Divider(color: cs.onPrimary),
-              _StatCell(
-                label: 'ELO',
-                value: eloRating.toString(),
                 onAccent: cs.onPrimary,
               ),
               _Divider(color: cs.onPrimary),
