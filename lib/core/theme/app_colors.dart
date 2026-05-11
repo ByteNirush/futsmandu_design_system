@@ -14,12 +14,20 @@ class AppColors {
   static const Color khalti = Color(0xFF5C2D91);
   static const Color esewa = Color(0xFF60BB46);
   static const Color ratingStar = warning;
+  
+  // ── Chat Specific Colors ──────────────────────────────────────────────────
+  static const Color chatSentBubble = Color(0xFFDCF8C6);
+  static const Color chatReceivedBubble = Color(0xFFFFFFFF);
+  static const Color chatBackground = Color(0xFFE5DDD5);
+  static const Color chatDateBackground = Color(0xFFFFFFFF);
+  static const Color chatReadTick = Color(0xFF34B7F1);
+
 
   // ── Brand Palette ─────────────────────────────────────────────────────────
-  static const Color primary = Color(0xFF3CC850); // Darker Green from screenshots
+  static const Color primary = Color(0xFF31AD43); // Darker Green from screenshots
   static const Color onPrimary = Color(0xFFFFFFFF);
 
-  static const Color secondary = Color(0xFF212529); // Dark almost black
+  static const Color secondary = Color(0xFF000000); // Dark almost black
   static const Color onSecondary = Color(0xFFFFFFFF);
 
   static const Color success = Color(0xFF28A745);
@@ -33,7 +41,7 @@ class AppColors {
 
   // ── Surfaces ──────────────────────────────────────────────────────────────
   static const Color lightSurface = Color(0xFFFFFFFF); // Stark white
-  static const Color darkSurface = Color(0xFF252525); // Card/box color from screenshots
+  static const Color darkSurface = Color(0xFF1A1A1A); // Card/box color from screenshots
 
   // ── Text ──────────────────────────────────────────────────────────────────
   static const Color lightTextPrimary =
@@ -92,7 +100,7 @@ class AppColors {
     return const ColorScheme(
       brightness: Brightness.dark,
 
-      primary: Color(0xFF3CC850),
+      primary: primary,
       onPrimary: Color(0xFF052E16),
 
       primaryContainer: Color(0xFF0D3D1F),
@@ -178,6 +186,22 @@ class AppColors {
           ? darkScheme.outlineVariant
           : lightScheme.outlineVariant;
 
+  static Color get outlineVariant => borderVariant();
+
+  static Color errorContainerColor([Brightness? brightness]) =>
+      (brightness ?? _systemBrightness) == Brightness.dark
+          ? darkScheme.errorContainer
+          : lightScheme.errorContainer;
+
+  static Color get errorContainer => errorContainerColor();
+
+  static Color onErrorContainerColor([Brightness? brightness]) =>
+      (brightness ?? _systemBrightness) == Brightness.dark
+          ? darkScheme.onErrorContainer
+          : lightScheme.onErrorContainer;
+
+  static Color get onErrorContainer => onErrorContainerColor();
+
   /// Returns the appropriate disabled text color based on brightness (defaults to system)
   static Color textDisabled([Brightness? brightness]) =>
       (brightness ?? _systemBrightness) == Brightness.dark
@@ -201,6 +225,8 @@ class AppColors {
       switch (status) {
         'AVAILABLE' => green,
         'HELD' => amber,
+        'PENDING' => warning,
+        'PENDING_PAYMENT' => warning,
         'CONFIRMED' => green,
         'CANCELLED' => red,
         'EXPIRED' => textDisabled(brightness),
