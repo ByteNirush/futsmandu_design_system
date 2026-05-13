@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 
+import '../../core/theme/app_radius.dart';
 import '../../core/theme/app_spacing.dart';
 import '../text/custom_text.dart';
 
@@ -21,6 +22,9 @@ class SecondaryButton extends StatelessWidget {
   Widget build(BuildContext context) {
     return OutlinedButton(
       onPressed: onPressed,
+      style: OutlinedButton.styleFrom(
+        shape: const RoundedRectangleBorder(borderRadius: AppRadius.medium),
+      ),
       child: Row(
         mainAxisSize: fullWidth ? MainAxisSize.max : MainAxisSize.min,
         mainAxisAlignment: MainAxisAlignment.center,

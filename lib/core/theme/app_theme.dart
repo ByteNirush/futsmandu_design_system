@@ -101,7 +101,7 @@ class AppTheme {
             vertical: AppSpacing.sm,
           ),
           textStyle: baseTextTheme.labelLarge,
-          shape: const RoundedRectangleBorder(borderRadius: AppRadius.large),
+          shape: const RoundedRectangleBorder(borderRadius: AppRadius.medium),
           elevation: AppElevation.level0,
           shadowColor: Colors.transparent,
         ),
@@ -116,7 +116,7 @@ class AppTheme {
             vertical: AppSpacing.sm,
           ),
           textStyle: baseTextTheme.labelLarge,
-          shape: const RoundedRectangleBorder(borderRadius: AppRadius.large),
+          shape: const RoundedRectangleBorder(borderRadius: AppRadius.medium),
           side: BorderSide(color: scheme.outlineVariant, width: 1.5),
         ),
       ),
@@ -158,29 +158,29 @@ class AppTheme {
         floatingLabelStyle: baseTextTheme.bodySmall?.copyWith(
           color: scheme.primary,
         ),
-        // Boxed outline border style - rounded corners like screenshot
+        // Boxed outline border style.
         border: OutlineInputBorder(
-          borderRadius: AppRadius.large,
+          borderRadius: AppRadius.medium,
           borderSide: BorderSide(color: scheme.outlineVariant.withValues(alpha: 0.5)),
         ),
         enabledBorder: OutlineInputBorder(
-          borderRadius: AppRadius.large,
+          borderRadius: AppRadius.medium,
           borderSide: BorderSide(color: scheme.outlineVariant.withValues(alpha: 0.5)),
         ),
         focusedBorder: OutlineInputBorder(
-          borderRadius: AppRadius.large,
+          borderRadius: AppRadius.medium,
           borderSide: BorderSide(color: scheme.primary, width: 2),
         ),
         errorBorder: OutlineInputBorder(
-          borderRadius: AppRadius.large,
+          borderRadius: AppRadius.medium,
           borderSide: BorderSide(color: scheme.error, width: 1.5),
         ),
         focusedErrorBorder: OutlineInputBorder(
-          borderRadius: AppRadius.large,
+          borderRadius: AppRadius.medium,
           borderSide: BorderSide(color: scheme.error, width: 2),
         ),
         disabledBorder: OutlineInputBorder(
-          borderRadius: AppRadius.large,
+          borderRadius: AppRadius.medium,
           borderSide: BorderSide(
             color: scheme.outlineVariant.withValues(alpha: 0.3),
           ),

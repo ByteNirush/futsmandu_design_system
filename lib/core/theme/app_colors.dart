@@ -37,11 +37,11 @@ class AppColors {
 
   // ── Backgrounds ───────────────────────────────────────────────────────────
   static const Color lightBackground = Color(0xFFF8F9FA); // Very light gray from screenshots
-  static const Color darkBackground = Color(0xFF111111); // Dark background from screenshots
+  static const Color darkBackground = Color.fromARGB(255, 7, 7, 7); // Dark background from screenshots
 
   // ── Surfaces ──────────────────────────────────────────────────────────────
   static const Color lightSurface = Color(0xFFFFFFFF); // Stark white
-  static const Color darkSurface = Color(0xFF1A1A1A); // Card/box color from screenshots
+  static const Color darkSurface = Color.fromARGB(255, 0, 0, 0); // Card/box color from screenshots
 
   // ── Text ──────────────────────────────────────────────────────────────────
   static const Color lightTextPrimary =

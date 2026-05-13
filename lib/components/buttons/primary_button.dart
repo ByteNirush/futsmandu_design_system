@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 
+import '../../core/theme/app_radius.dart';
 import '../../core/theme/app_spacing.dart';
 import '../text/custom_text.dart';
 
@@ -23,6 +24,9 @@ class PrimaryButton extends StatelessWidget {
   Widget build(BuildContext context) {
     return ElevatedButton(
       onPressed: isLoading ? null : onPressed,
+      style: ElevatedButton.styleFrom(
+        shape: const RoundedRectangleBorder(borderRadius: AppRadius.medium),
+      ),
       child: Row(
         mainAxisSize: fullWidth ? MainAxisSize.max : MainAxisSize.min,
         mainAxisAlignment: MainAxisAlignment.center,
