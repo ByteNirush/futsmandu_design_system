@@ -57,13 +57,6 @@ class OtpPinInput extends StatelessWidget {
           color: cs.surface,
           border: Border.all(color: cs.primary, width: 2),
           borderRadius: pinRadius,
-          boxShadow: [
-            BoxShadow(
-              color: cs.primary.withValues(alpha: 0.25),
-              blurRadius: 10,
-              spreadRadius: 2,
-            ),
-          ],
         ),
       ),
       submittedPinTheme: defaultTheme.copyWith(
