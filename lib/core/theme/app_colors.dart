@@ -14,7 +14,7 @@ class AppColors {
   static const Color khalti = Color(0xFF5C2D91);
   static const Color esewa = Color(0xFF60BB46);
   static const Color ratingStar = warning;
-  
+
   // ── Chat Specific Colors ──────────────────────────────────────────────────
   static const Color chatSentBubble = Color(0xFFDCF8C6);
   static const Color chatReceivedBubble = Color(0xFFFFFFFF);
@@ -22,9 +22,9 @@ class AppColors {
   static const Color chatDateBackground = Color(0xFFFFFFFF);
   static const Color chatReadTick = Color(0xFF34B7F1);
 
-
   // ── Brand Palette ─────────────────────────────────────────────────────────
-  static const Color primary = Color(0xFF31AD43); // Darker Green from screenshots
+  static const Color primary =
+      Color(0xFF31AD43); // Darker Green from screenshots
   static const Color onPrimary = Color(0xFFFFFFFF);
 
   static const Color secondary = Color(0xFF000000); // Dark almost black
@@ -36,12 +36,13 @@ class AppColors {
   static const Color error = Color(0xFFDC3545);
 
   // ── Backgrounds ───────────────────────────────────────────────────────────
-  static const Color lightBackground = Color(0xFFF8F9FA); // Very light gray from screenshots
-  static const Color darkBackground = Color.fromARGB(255, 7, 7, 7); // Dark background from screenshots
+  static const Color lightBackground =
+      Color(0xFFF8F9FA); // Very light gray from screenshots
+  static const Color darkBackground = Color(0xFF070707); // Dark background from screenshots
 
   // ── Surfaces ──────────────────────────────────────────────────────────────
   static const Color lightSurface = Color(0xFFFFFFFF); // Stark white
-  static const Color darkSurface = Color.fromARGB(255, 0, 0, 0); // Card/box color from screenshots
+    static const Color darkSurface = Color(0xFF000000); // Card/box color from screenshots
 
   // ── Text ──────────────────────────────────────────────────────────────────
   static const Color lightTextPrimary =
@@ -52,90 +53,132 @@ class AppColors {
   static const Color lightTextDisabled = Color(0xFF9CA3AF);
   static const Color darkTextDisabled = Color(0xFF6B7280);
 
+    // ── Derived / Scheme Helper Colors ──────────────────────────────────────
+    static const Color primaryContainerLight = Color(0xFFE8F5E9);
+    static const Color onPrimaryContainerLight = Color(0xFF1B5E20);
+
+    static const Color secondaryContainerLight = Color(0xFFE2E8F0);
+    static const Color onSecondaryContainerLight = Color(0xFF0F172A);
+
+    static const Color tertiaryContainerLight = Color(0xFFDCFCE7);
+    static const Color onTertiaryContainerLight = Color(0xFF14532D);
+
+    static const Color errorContainerLight = Color(0xFFFFE4E6);
+    static const Color onErrorContainerLight = Color(0xFF881337);
+
+    static const Color outlineLight = Color(0xFFE5E7EB);
+    static const Color outlineVariantLight = Color(0xFFD1D5DB);
+
+    static const Color shadowLight = Color(0x1A000000);
+    static const Color scrimLight = Color(0x80000000);
+
+    static const Color inversePrimaryLight = Color(0xFF8CE376);
+
+    // Dark scheme helper colors
+    static const Color onPrimaryDark = Color(0xFF052E16);
+    static const Color primaryContainerDark = Color(0xFF0D3D1F);
+    static const Color onPrimaryContainerDark = Color(0xFF22C55E);
+
+    static const Color secondaryDark = Color(0xFF9CA3AF);
+    static const Color onSecondaryDark = Color(0xFF111827);
+    static const Color secondaryContainerDark = Color(0xFF1E2A38);
+    static const Color onSecondaryContainerDark = Color(0xFFE2E8F0);
+
+    static const Color tertiaryDark = Color(0xFF34D399);
+    static const Color onTertiaryDark = Color(0xFF052E16);
+    static const Color tertiaryContainerDark = Color(0xFF083D2A);
+    static const Color onTertiaryContainerDark = Color(0xFFA7F3D0);
+
+    static const Color errorDark = Color(0xFFFF4444);
+    static const Color onErrorDark = Color(0xFF2D0000);
+    static const Color errorContainerDark = Color(0xFF3D0000);
+    static const Color onErrorContainerDark = Color(0xFFFFCDD2);
+
+    static const Color onSurfaceVariantDark = Color(0xFFB0B8C4);
+    static const Color outlineDark = Color(0xFF4A5568);
+    static const Color outlineVariantDark = Color(0xFF2D3748);
+    static const Color shadowDark = Color(0x80000000);
+
   // ── Light ColorScheme ─────────────────────────────────────────────────────
   static ColorScheme get lightScheme {
     return const ColorScheme(
       brightness: Brightness.light,
 
-      primary: primary,
-      onPrimary: onPrimary,
-      primaryContainer: Color(0xFFE8F5E9), // very light green
-      onPrimaryContainer: Color(0xFF1B5E20), // very dark green
+            primary: primary,
+            onPrimary: onPrimary,
+            primaryContainer: primaryContainerLight, // very light green
+            onPrimaryContainer: onPrimaryContainerLight, // very dark green
 
-      secondary: secondary,
-      onSecondary: onSecondary,
-      secondaryContainer: Color(0xFFE2E8F0),
-      onSecondaryContainer: Color(0xFF0F172A),
+            secondary: secondary,
+            onSecondary: onSecondary,
+            secondaryContainer: secondaryContainerLight,
+            onSecondaryContainer: onSecondaryContainerLight,
 
-      tertiary: success,
-      onTertiary: onPrimary,
-      tertiaryContainer: Color(0xFFDCFCE7),
-      onTertiaryContainer: Color(0xFF14532D),
+            tertiary: success,
+            onTertiary: onPrimary,
+            tertiaryContainer: tertiaryContainerLight,
+            onTertiaryContainer: onTertiaryContainerLight,
 
-      error: error,
-      onError: onPrimary,
-      errorContainer: Color(0xFFFFE4E6),
-      onErrorContainer: Color(0xFF881337),
+            error: error,
+            onError: onPrimary,
+            errorContainer: errorContainerLight,
+            onErrorContainer: onErrorContainerLight,
 
-      surface: lightSurface,
-      onSurface: lightTextPrimary,
-      onSurfaceVariant: lightTextSecondary,
+            surface: lightSurface,
+            onSurface: lightTextPrimary,
+            onSurfaceVariant: lightTextSecondary,
 
-      outline: Color(0xFFE5E7EB), // clean light borders
-      outlineVariant: Color(0xFFD1D5DB),
+            outline: outlineLight, // clean light borders
+            outlineVariant: outlineVariantLight,
 
-      shadow: Color(0x1A000000), // light, subtle shadows
-      scrim: Color(0x80000000),
+            shadow: shadowLight, // light, subtle shadows
+            scrim: scrimLight,
 
-      inverseSurface: darkSurface,
-      onInverseSurface: darkTextPrimary,
-      inversePrimary: Color(0xFF8CE376),
+            inverseSurface: darkSurface,
+            onInverseSurface: darkTextPrimary,
+            inversePrimary: inversePrimaryLight,
 
-      surfaceTint: lightSurface, // Prevents material 3 tinting pure white cards
+            surfaceTint: lightSurface, // Prevents material 3 tinting pure white cards
     );
   }
 
   // ── Dark ColorScheme ──────────────────────────────────────────────────────
   static ColorScheme get darkScheme {
     return const ColorScheme(
-      brightness: Brightness.dark,
+            brightness: Brightness.dark,
+            primary: primary,
+            onPrimary: onPrimaryDark,
+            primaryContainer: primaryContainerDark,
+            onPrimaryContainer: onPrimaryContainerDark,
 
-      primary: primary,
-      onPrimary: Color(0xFF052E16),
+            secondary: secondaryDark,
+            onSecondary: onSecondaryDark,
+            secondaryContainer: secondaryContainerDark,
+            onSecondaryContainer: onSecondaryContainerDark,
 
-      primaryContainer: Color(0xFF0D3D1F),
-      onPrimaryContainer: Color(0xFF22C55E),
+            tertiary: tertiaryDark,
+            onTertiary: onTertiaryDark,
+            tertiaryContainer: tertiaryContainerDark,
+            onTertiaryContainer: onTertiaryContainerDark,
 
-      secondary: Color(0xFF9CA3AF),
-      onSecondary: Color(0xFF111827),
-      secondaryContainer: Color(0xFF1E2A38),
-      onSecondaryContainer: Color(0xFFE2E8F0),
+            error: errorDark,
+            onError: onErrorDark,
+            errorContainer: errorContainerDark,
+            onErrorContainer: onErrorContainerDark,
 
-      tertiary: Color(0xFF34D399),
-      onTertiary: Color(0xFF052E16),
-      tertiaryContainer: Color(0xFF083D2A),
-      onTertiaryContainer: Color(0xFFA7F3D0),
+            surface: darkSurface,
+            onSurface: darkTextPrimary,
+            onSurfaceVariant: onSurfaceVariantDark,
 
-      error: Color(0xFFFF4444),
-      onError: Color(0xFF2D0000),
-      errorContainer: Color(0xFF3D0000),
-      onErrorContainer: Color(0xFFFFCDD2),
+            outline: outlineDark,
+            outlineVariant: outlineVariantDark,
 
-      surface: darkSurface,
-      onSurface: darkTextPrimary,
-
-      onSurfaceVariant: Color(0xFFB0B8C4),
-
-      outline: Color(0xFF4A5568),
-      outlineVariant: Color(0xFF2D3748),
-
-      shadow: Color(0x80000000),
-
-      inverseSurface: lightSurface,
-      onInverseSurface: lightTextPrimary,
-      inversePrimary: primary,
-
-      surfaceTint: darkSurface,
+            shadow: shadowDark,
+            inverseSurface: lightSurface,
+            onInverseSurface: lightTextPrimary,
+            inversePrimary: primary,
+            
+            surfaceTint: darkSurface,
     );
   }
 
