@@ -5,6 +5,7 @@ import 'app_colors.dart';
 import 'app_elevation.dart';
 import 'app_radius.dart';
 import 'app_spacing.dart';
+import 'app_dimensions.dart';
 import 'app_typography.dart';
 
 class AppTheme {
@@ -60,10 +61,10 @@ class AppTheme {
 
       // ── Bottom Navigation Bar ──────────────────────────────────────────────
       navigationBarTheme: NavigationBarThemeData(
-        height: 72,
+        height: AppDimensions.navigationBarHeight,
         backgroundColor: scheme.surface,
         surfaceTintColor: Colors.transparent,
-        indicatorColor: scheme.primary.withValues(alpha: 0.14),
+        indicatorColor: Colors.transparent,
         elevation: 0,
         shadowColor: Colors.transparent,
         labelBehavior: NavigationDestinationLabelBehavior.alwaysShow,
